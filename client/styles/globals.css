@@ -1,0 +1,333 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Gmail-style Email Body Container */
+.gmail-email-body {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #202124;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.dark .gmail-email-body {
+  color: #e8eaed;
+}
+
+/* Email Content - Gmail HTML Rendering */
+.email-content {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #000;
+  box-sizing: border-box;
+  min-height: 100px;
+  padding: 24px;
+  margin: 0 auto;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+/* Dark mode - preserve email background */
+.dark .email-content {
+  /* Don't override - let email's own background show */
+}
+
+/* Center emails with max-width (like Gmail does) */
+.email-content > div[style*="max-width"],
+.email-content > table[style*="max-width"] {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+}
+
+/* Center root email element */
+.email-content > div:first-child,
+.email-content > table:first-child,
+.email-content > center:first-child {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Add spacing around email content */
+.email-content > * {
+  margin-bottom: 16px;
+}
+
+.email-content > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Ensure proper spacing for nested elements */
+.email-content div,
+.email-content table {
+  box-sizing: border-box;
+}
+
+/* Add line separation for email sections */
+.email-content > div + div,
+.email-content > table + table {
+  margin-top: 20px;
+}
+
+/* Preserve all inline styles - Gmail way */
+.email-content * {
+  max-width: 100%;
+}
+
+/* Gmail Typography */
+.email-content p {
+  margin: 0 0 1em 0;
+  padding: 0;
+}
+
+.email-content p:last-child {
+  margin-bottom: 0;
+}
+
+.email-content h1,
+.email-content h2,
+.email-content h3,
+.email-content h4,
+.email-content h5,
+.email-content h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+/* Gmail Links */
+.email-content a {
+  color: #1155cc;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.email-content a:hover {
+  text-decoration: underline;
+}
+
+.email-content a:visited {
+  color: #6611cc;
+}
+
+.dark .email-content a {
+  color: #8ab4f8;
+}
+
+.dark .email-content a:visited {
+  color: #c58af9;
+}
+
+/* Gmail Images - maintain aspect ratio */
+.email-content img {
+  max-width: 100%;
+  height: auto;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Gmail Tables - preserve layout */
+.email-content table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  max-width: 100%;
+  width: auto;
+  table-layout: auto;
+}
+
+.email-content table td,
+.email-content table th {
+  padding: 0;
+  vertical-align: top;
+}
+
+.email-content table[width="100%"] {
+  width: 100% !important;
+}
+
+/* Gmail Divs - preserve structure */
+.email-content div {
+  margin: 0;
+  padding: 0;
+}
+
+/* Gmail Blockquotes */
+.email-content blockquote {
+  margin: 0 0 0 0.8ex;
+  padding-left: 1ex;
+  border-left: 1px solid #ccc;
+}
+
+.dark .email-content blockquote {
+  border-left-color: #5f6368;
+}
+
+/* RTL (Right-to-Left) Support for Arabic/Hebrew */
+.email-content [dir="rtl"],
+.email-content [align="right"] {
+  direction: rtl;
+  text-align: right;
+}
+
+.email-content [dir="ltr"],
+.email-content [align="left"] {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Center alignment */
+.email-content [align="center"] {
+  text-align: center;
+}
+
+/* Gmail Font Styling */
+.email-content font[color] {
+  color: inherit;
+}
+
+.email-content font[face] {
+  font-family: inherit;
+}
+
+/* Gmail Spacing */
+.email-content br {
+  line-height: inherit;
+}
+
+/* Gmail Lists */
+.email-content ul,
+.email-content ol {
+  margin: 0;
+  padding: 0 0 0 40px;
+}
+
+.email-content li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Gmail HR */
+.email-content hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 1em 0;
+}
+
+.dark .email-content hr {
+  border-top-color: #5f6368;
+}
+
+/* Gmail Pre/Code */
+.email-content pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+}
+
+.email-content code {
+  font-family: monospace;
+  background-color: #f5f5f5;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.dark .email-content code {
+  background-color: #3c4043;
+}
+
+/* Gmail Button/CTA Styling */
+.email-content a[style*="background"] {
+  display: inline-block;
+  text-decoration: none !important;
+}
+
+/* Prevent content overflow */
+.email-content {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Gmail responsive tables */
+@media screen and (max-width: 600px) {
+  .email-content table {
+    width: 100% !important;
+  }
+  
+  .email-content td {
+    display: block;
+    width: 100% !important;
+  }
+}
