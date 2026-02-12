@@ -1,41 +1,25 @@
 {
-  "name": "tempmail-app",
+  "name": "tempmail-client",
   "version": "1.0.0",
-  "description": "Temporary email service with history and custom naming",
-  "main": "server/index.js",
+  "private": true,
   "scripts": {
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "nodemon server/index.js",
-    "client": "cd client && npm run dev",
-    "build": "cd client && npm run build",
-    "start": "node server/index.js",
-    "install-all": "npm install && cd client && npm install",
-    "setup": "node setup.js",
-    "verify": "node verify-setup.js",
-    "test-email": "node test-email.js",
-    "docker:up": "docker-compose up -d",
-    "docker:down": "docker-compose down",
-    "docker:logs": "docker-compose logs -f"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "keywords": ["tempmail", "temporary-email", "disposable-email"],
-  "author": "",
-  "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "sequelize": "^6.35.2",
-    "sqlite3": "^5.1.7",
-    "uuid": "^9.0.1",
-    "mailparser": "^3.6.5",
-    "smtp-server": "^3.13.0",
-    "nodemailer": "^6.9.7",
-    "body-parser": "^1.20.2",
-    "socket.io": "^4.6.0",
-    "node-cron": "^3.0.3"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "next": "^14.0.4",
+    "axios": "^1.6.2",
+    "react-icons": "^4.12.0",
+    "date-fns": "^3.0.6",
+    "react-hot-toast": "^2.4.1"
   },
   "devDependencies": {
-    "nodemon": "^3.0.2",
-    "concurrently": "^8.2.2"
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.6"
   }
 }
