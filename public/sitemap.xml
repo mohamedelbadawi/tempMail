@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage - English -->
+  <url>
+    <loc>https://noxilmail.com/</loc>
+    <lastmod>2024-02-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://noxilmail.com/ar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noxilmail.com/"/>
+  </url>
+  
+  <!-- Homepage - Arabic -->
+  <url>
+    <loc>https://noxilmail.com/ar</loc>
+    <lastmod>2024-02-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noxilmail.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://noxilmail.com/ar"/>
+  </url>
+
+</urlset>
