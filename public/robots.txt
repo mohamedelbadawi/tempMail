@@ -1,0 +1,30 @@
+# Robots.txt for Noxil Mail
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /app
+
+# Sitemap location
+Sitemap: https://noxilmail.com/sitemap.xml
+Sitemap: https://noxilmail.com/sitemap-ar.xml
+
+# Crawl-delay for polite crawlers
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /app
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /app
+
+User-agent: Slurp
+Allow: /
+Disallow: /api/
+Disallow: /app

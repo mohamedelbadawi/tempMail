@@ -1,7 +1,18 @@
 import '../styles/globals.css'
 import { Toaster } from 'react-hot-toast'
+import { appWithTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
-export default function App({ Component, pageProps }) {
+function App({ Component, pageProps }) {
+  const router = useRouter()
+  
+  // Add RTL support for Arabic
+  useEffect(() => {
+    const direction = router.locale === 'ar' ? 'rtl' : 'ltr'
+    document.documentElement.dir = direction
+    document.documentElement.lang = router.locale
+  }, [router.locale])
   return (
     <>
       <Component {...pageProps} />
@@ -32,3 +43,5 @@ export default function App({ Component, pageProps }) {
     </>
   )
 }
+
+export default appWithTranslation(App)
